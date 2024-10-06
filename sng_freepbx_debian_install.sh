@@ -950,7 +950,7 @@ fi
 systemctl unmask tftpd-hpa.service chrony.service
 if [ $(grep -c "lxc" /proc/1/environ 2>/dev/null) -gt 0 ]; then
     echo "Running in LXC Container. Chrony running with -x."
-    sed -i 's:^ExecStart=.*:ExecStart=!/usr/sbin/chronyd $DAEMON_OPTS -x:g' /etc/systemd/system/chrony.service
+    sed -i 's:^ExecStart=.*:ExecStart=!/usr/sbin/chronyd $DAEMON_OPTS -x:g' /lib/systemd/system/chrony.service
 fi
 systemctl start tftpd-hpa.service chrony.service
 
